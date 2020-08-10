@@ -3,5 +3,5 @@ env:
 services:
 - docker
 script:
-- ./runner download
-- ./runner build
+- ./runner.sh download
+- ./runner.sh build

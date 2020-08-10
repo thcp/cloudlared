@@ -19,11 +19,16 @@ docker_build() {
 }
 # Build
 docker_publish() {
-  for tag in latest "${CLOUDFLARED_RELEASE}" ; do
-      echo "Tagging $tag"
-      docker tag ${DOCKER_IMAGE}:${TMP_TAG} ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${tag}
-      docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${tag}       
-  done
+  if ([ "$TRAVIS_BRANCH" == "master" ] || [ ! -z "$TRAVIS_TAG" ]) && 
+      [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    docker login --username "$DOCKER_REGISTRY_LOGIN" "$DOCKER_REGISTRY_TOKEN"
+    for tag in latest "${CLOUDFLARED_RELEASE}" ; do
+        echo "Tagging $tag"
+        docker tag ${DOCKER_IMAGE}:${TMP_TAG} ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${tag}
+        docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${tag}       
+    done
+  fi
+
 
 
 }

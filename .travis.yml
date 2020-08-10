@@ -1,5 +1,9 @@
 services:
 - docker
+
 script:
-- ./runner.sh download
-- ./runner.sh build
+  - ./runner.sh download
+  - ./runner.sh build
+deploy:
+  script:
+    - ./runner.sh publish

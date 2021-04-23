@@ -21,6 +21,12 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
+      - name: Fetch cloudflared Binary
+      - run: |
+          chmod +x "${GITHUB_WORKSPACE}/.github/runner.sh"
+
+          # run script
+          "${GITHUB_WORKSPACE}/.github/runner.sh download_argo"
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2

@@ -25,6 +25,7 @@ jobs:
         run: |
           chmod +x runner.sh
           # run script
+          pwd
           ./runner.sh download_argo
       - name: Build and push
         id: docker_build

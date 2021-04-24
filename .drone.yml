@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: ubuntu
+    image: alpine
     commands:
       - ls -ltrah runner.sh ; chmod +x runner.sh  ; ./runner.sh download
   publish:

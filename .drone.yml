@@ -1,8 +1,8 @@
 pipeline:
   build:
-    image: alpine
+    image: curlimages/curl
     commands:
-      - chmod +x runner.sh ; ./runner.sh build
+      - chmod +x runner.sh  ; ./runner.sh download
   publish:
     image: plugins/docker
     repo: thclpr/cloudflared

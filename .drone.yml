@@ -2,7 +2,7 @@ pipeline:
   build:
     image: ubuntu
     commands:
-      - ls -ltrah runner.sh ; chmod +x runner.sh  ; ./runner.sh build
+      - ls -ltrah runner.sh ; chmod +x runner.sh  ; ./runner.sh download
   publish:
     image: plugins/docker
     repo: thclpr/cloudflared

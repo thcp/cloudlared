@@ -2,7 +2,7 @@ pipeline:
   build:
     image: alpine
     commands:
-      - ls -ltrah runner.sh ; chmod +x runner.sh ; ./runner.sh build
+      - ls -ltrah runner.sh ; chmod +x runner.sh 
   publish:
     image: plugins/docker
     repo: thclpr/cloudflared

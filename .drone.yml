@@ -1,0 +1,8 @@
+pipeline:
+  build:
+    image: alpine
+    commands:
+      - ./runner build
+  publish:
+    image: plugins/docker
+    repo: thclpr/cloudflared
